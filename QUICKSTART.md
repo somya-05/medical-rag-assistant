@@ -7,9 +7,9 @@
 pip install -r requirements.txt
 ```
 
-2. **Set your OpenAI API key**
+2. **Set your Groq API key**
 ```bash
-export OPENAI_API_KEY='sk-...'
+export GROQ_API_KEY='gsk-...'
 ```
 
 Or create a `.env` file:
@@ -72,7 +72,7 @@ Enter symptoms: fever, cough, headache
 
 Change the LLM model in `rag_pipeline.py`:
 ```python
-rag = MedicalRAG(vector_db, model="gpt-4")  # or "gpt-4-turbo"
+rag = MedicalRAG(vector_db, model="llama-3.1-70b-versatile")  # or "mixtral-8x7b-32768"
 ```
 
 Change number of similar cases:
@@ -94,7 +94,7 @@ pip install -r requirements.txt
 
 **API Key Error** - Set environment variable:
 ```bash
-export OPENAI_API_KEY='your-key'
+export GROQ_API_KEY='your-key'
 ```
 
 **Database Issues** - Clear and rebuild:

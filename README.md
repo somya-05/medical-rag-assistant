@@ -7,7 +7,7 @@ A simple Retrieval-Augmented Generation (RAG) system for diagnosing medical cond
 This tool combines:
 - **Data Preprocessing**: Processes the symptom-disease dataset
 - **Vector Database**: Stores symptom embeddings using ChromaDB and sentence transformers
-- **RAG Pipeline**: Retrieves similar cases and generates diagnosis using OpenAI's GPT models
+- **RAG Pipeline**: Retrieves similar cases and generates diagnosis using Groq's LLM models (Llama 3.1)
 
 ## Features
 
@@ -36,14 +36,14 @@ cd /Users/somyabansal/Documents/symptom-prediction
 pip install -r requirements.txt
 ```
 
-3. Set up your OpenAI API key:
+3. Set up your Groq API key:
 ```bash
-export OPENAI_API_KEY='your-api-key-here'
+export GROQ_API_KEY='your-api-key-here'
 ```
 
 Or create a `.env` file:
 ```
-OPENAI_API_KEY=your-api-key-here
+GROQ_API_KEY=your-api-key-here
 ```
 
 ## Project Structure
@@ -155,7 +155,7 @@ results = vector_db.search("fever, headache, nausea", n_results=5)
    - Takes user symptoms as input
    - Retrieves similar cases from vector database
    - Builds context from retrieved cases
-   - Uses OpenAI GPT to generate diagnostic assessment
+   - Uses Groq LLM (Llama 3.1) to generate diagnostic assessment
    - Provides explanation with disclaimers
 
 ## Configuration
@@ -175,7 +175,7 @@ vector_db = VectorDatabase(
 ```python
 rag = MedicalRAG(
     vector_db=vector_db,
-    model="gpt-3.5-turbo",  # Can use "gpt-4", "gpt-4-turbo", etc.
+    model="llama-3.1-8b-instant",  # Can use "llama-3.1-70b-versatile", "mixtral-8x7b-32768", etc.
     api_key="your-key"
 )
 ```
@@ -193,7 +193,7 @@ rag = MedicalRAG(
 ### API Key Issues
 If you get an authentication error:
 ```bash
-export OPENAI_API_KEY='your-api-key-here'
+export GROQ_API_KEY='your-api-key-here'
 ```
 
 ### ChromaDB Persistence
@@ -249,7 +249,7 @@ associated with cardiac conditions...
 - numpy: Numerical operations
 - chromadb: Vector database
 - sentence-transformers: Text embeddings
-- openai: LLM API access
+- groq: LLM API access (fast inference)
 - python-dotenv: Environment variable management
 
 ## License
