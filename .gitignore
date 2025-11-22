@@ -26,6 +26,10 @@ wheels/
 # Environment variables
 .env
 
+# Virtual environments
+.venv/
+venv/
+
 # Vector database
 chroma_db/
 *.db
