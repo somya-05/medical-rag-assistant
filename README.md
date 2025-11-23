@@ -28,7 +28,7 @@ The system uses the Disease Symptom Knowledge Database from Columbia University 
 
 1. Clone or navigate to the project directory:
 ```bash
-cd /Users/somyabansal/Documents/symptom-prediction
+cd medical-rag-assistant
 ```
 
 2. Install dependencies:
@@ -49,7 +49,7 @@ GROQ_API_KEY=your-api-key-here
 ## Project Structure
 
 ```
-symptom-prediction/
+medical-rag-assistant/
 ├── data/
 │   └── fixed_augmented_dataset_multibiner_num_augmentations_100_cleaned.csv
 ├── data_preprocessing.py    # Data loading and preparation
